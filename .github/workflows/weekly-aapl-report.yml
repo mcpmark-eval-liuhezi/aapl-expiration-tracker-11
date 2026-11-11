@@ -1,0 +1,11 @@
+name: Weekly AAPL Options Tracker
+
+on:
+  workflow_dispatch:
+
+jobs:
+  weekly-aapl-report:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo status
+        run: echo "AAPL expiration tracker workflow executed successfully."
