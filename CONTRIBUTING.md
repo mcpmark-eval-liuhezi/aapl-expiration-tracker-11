@@ -1,25 +1,24 @@
-# Contributing to aapl-expiration-tracker
+# Contributing to AAPL Expiration Tracker
 
-Thanks for your interest in contributing to this weekly AAPL options expiration tracker for the risk meeting.
+Thanks for your interest in contributing!
 
-## Adding expirations.md updates weekly
+## Local Setup
 
-1. Confirm you have a **fresh AAPL share price** from the data source.
-2. List the **three soonest upcoming option expirations** (skip anything earlier than today).
-3. For each expiration, compute:
-   - ATM strike (closest strike to the current share price)
-   - Call strike with the **highest open interest**
-   - Put strike with the **highest open interest**
-   - Use the share price you used for ATM determination in the issue body
-4. Open a **pull request** from a feature branch (e.g. `tracking/<date>-stream`) into `main`.
-5. Create tracking issues in date order, titled `Expiry YYYY-MM-DD`, each with:
-   - that expiration's ATM strike
-   - highest-OI call strike
-   - highest-OI put strike
-   - the share price used
+Clone the repo and create a feature branch for each change:
 
-## Notes
+```bash
+git clone https://github.com/mcpmark-eval-liuhezi/aapl-expiration-tracker-11.git
+cd aapl-expiration-tracker-11
+git switch -c <short-descriptive-name>
+```
 
-- All market figures must come from **live data** — report exactly what the source returns (no rounding, no external adjustments).
-- Report any odd numbers (very high premiums at deep ITM strikes, unusual strike step intervals) exactly as returned.
-- Keep `expirations.md` at the repo root and keep the summary table in sync with the issue bodies.
+## Pull Requests
+
+1. Make changes on a feature branch.
+2. Open a pull request against `main`.
+3. All market figures must come from **live data** — never paste stale numbers from a previous week without re-checking.
+4. Report any number that looks odd exactly as the source returned it.
+
+## Rule of thumb
+
+Keep weekly AAPL expiration tracking simple and sourceable: snapshot, expiration list, per-expiration stats (ATM strike, highest-OI call strike, highest-OI put strike), and the share price used.
